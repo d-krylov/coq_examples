@@ -23,3 +23,21 @@ Proof.
   - simpl. intros c H. rewrite H. reflexivity.
   - simpl. intros c H. rewrite H. reflexivity.
 Qed.
+
+
+Lemma lemma_2:
+  forall n m : nat, n = 0 \/ m = 0 -> n * m = 0.
+Proof.
+  intros n m H.
+  destruct H as [ Ha | Hb ].
+  - rewrite Ha. simpl. reflexivity.
+  - rewrite Hb. rewrite <- mult_n_O. reflexivity.
+Qed.
+
+Lemma lemma_1 : forall P Q : Prop,
+  P /\ Q -> Q.
+Proof.
+  intros P Q H.
+  destruct H as (HA & HB).
+  apply HB.
+Qed.

@@ -30,3 +30,8 @@ Proof.
   - apply H1. 
   - apply le_S. apply IHno.
 Qed.
+
+Lemma induction_example_fix: forall n m p : nat,
+  n + (m + p) = (n + m) + p.
+Proof.
+  intros. fix n.
